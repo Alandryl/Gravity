@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1ca63a91b17724bbd99c8fa67e0180, type: 3}
+  m_Name: Concrete Room Material Palette
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 2100000, guid: 9e1a6dec0a6220e4fab6ffd17c1f9665, type: 2}
+  - {fileID: 2100000, guid: 55a77324c536ea340b15f0af2a82ea21, type: 2}
+  - {fileID: 2100000, guid: 9c08ce6fb2f5ef34aa8f1103ec7472d4, type: 2}
+  - {fileID: 2100000, guid: b84841875cb7a594aaf65187a002e9ea, type: 2}
+  - {fileID: 2100000, guid: e92b7a41dab8d384fbb67d2adc0f5e60, type: 2}
+  - {fileID: 2100000, guid: 922ef0a34f1edbc43824782323d944e1, type: 2}
+  - {fileID: 2100000, guid: 2f531f27b185a404d912bf139136fa95, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
