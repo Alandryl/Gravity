@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a8e364ce314309b41b21f772721da2e2
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 128
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 'Oxin '
+  fontNames:
+  - 'Oxin '
+  fallbackFontReferences: []
+  customCharacters: 123456789
+  fontRenderingMode: 0
+  ascentCalculationMode: 0
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

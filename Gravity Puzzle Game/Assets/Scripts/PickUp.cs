@@ -100,7 +100,7 @@ public class PickUp : MonoBehaviour
         {
             if (canInteract)
             {
-                selectableObject.GetComponent<Activator>().activated = true;
+                selectableObject.GetComponent<Activation>().activated = true;
             }
         }
         

@@ -21,10 +21,17 @@ MonoBehaviour:
       y: 0.53333336
       width: 0.47670808
       height: 0.46046507
-  - name: 
+  - name: Dirt_02
     region:
       serializedVersion: 2
-      x: 0.010869565
-      y: 0.0062015504
-      width: 0.5015528
-      height: 0.33488375
+      x: 0.48602486
+      y: 0.5255814
+      width: 0.50621116
+      height: 0.47131783
+  - name: Dirt_03
+    region:
+      serializedVersion: 2
+      x: 0.00000019341704
+      y: 0.0005580873
+      width: 0.49288812
+      height: 0.3421085

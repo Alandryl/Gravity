@@ -8,7 +8,6 @@ public class GravityResetField : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     void Update()
@@ -28,11 +27,19 @@ public class GravityResetField : MonoBehaviour
             {
                 playerMovementScriptNew.gravityDirection = gravityDirection;
             }
+
+            SoundPlayer soundPlayer = GameObject.Find("SoundPlayer").GetComponent<SoundPlayer>();
+            soundPlayer.audioToPlay = soundPlayer.audioClipWallTransition;
+            soundPlayer.PlayAudio();
         }
 
         if (other.tag == "Pickup")
         {
             other.gameObject.GetComponent<Item>().ResetPosition();
+
+            SoundPlayer soundPlayer = GameObject.Find("SoundPlayer").GetComponent<SoundPlayer>();
+            soundPlayer.audioToPlay = soundPlayer.audioClipWallTransition;
+            soundPlayer.PlayAudio();
         }
     }
 }
