@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1142602935970774661}
   - component: {fileID: 1142602935970774667}
   - component: {fileID: 2025563723}
+  - component: {fileID: 4357332567687203761}
   m_Layer: 8
   m_Name: Pickup_GravityCube
   m_TagString: Pickup
@@ -64,6 +65,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4357332567687203761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142602935970774664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08a7476484075141ade83e7d59db221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1142602938013950572
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,11 +242,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1142602935970774661}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 1bde51364b252184f957ee6ef678864e,
-        type: 3}
-      propertyPath: m_Name
-      value: GravityCube_01
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1bde51364b252184f957ee6ef678864e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -288,6 +296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1bde51364b252184f957ee6ef678864e,
+        type: 3}
+      propertyPath: m_Name
+      value: GravityCube_01
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 1bde51364b252184f957ee6ef678864e,
         type: 3}

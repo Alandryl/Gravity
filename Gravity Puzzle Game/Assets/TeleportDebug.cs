@@ -11,6 +11,7 @@ public class TeleportDebug : MonoBehaviour
     public GameObject Teleport3;
     public GameObject Teleport4;
     public GameObject Teleport5;
+    public GameObject Teleport6;
 
 
     void Start()
@@ -45,8 +46,10 @@ public class TeleportDebug : MonoBehaviour
             player.transform.position = Teleport5.transform.position;
             player.GetComponent<PlayerMovementScriptNew>().gravityDirection = GravityDirection.YMinus;
         }
+        if (Input.GetButton("6") && Input.GetButton("Jump"))
+        {
+            player.transform.position = Teleport6.transform.position;
+            player.GetComponent<PlayerMovementScriptNew>().gravityDirection = GravityDirection.YMinus;
+        }
     }
-
-
-
 }

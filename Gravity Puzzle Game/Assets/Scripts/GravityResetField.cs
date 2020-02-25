@@ -29,5 +29,10 @@ public class GravityResetField : MonoBehaviour
                 playerMovementScriptNew.gravityDirection = gravityDirection;
             }
         }
+
+        if (other.tag == "Pickup")
+        {
+            other.gameObject.GetComponent<Item>().ResetPosition();
+        }
     }
 }
