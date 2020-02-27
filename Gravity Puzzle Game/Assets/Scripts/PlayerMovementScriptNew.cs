@@ -32,6 +32,23 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
     Vector3 velocity;
 
+
+
+
+
+
+    //TEST
+    private float rotationTimer;
+    private Quaternion startRotation;
+
+
+
+
+
+
+
+
+
     void Start()
     {
         gravityDirectionVector = new Vector3(0, -gravity * rb.mass, 0);
@@ -92,6 +109,13 @@ public class PlayerMovementScriptNew : MonoBehaviour
         // Apply a force that attempts to reach our target velocity
         velocity = rb.velocity;
         Vector3 velocityChange = (targetVelocity - velocity);
+
+
+
+
+
+
+
 
         if (gravityDirection == GravityDirection.XPlus)
         {
@@ -157,7 +181,7 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
         //Gravity
 
-        rb.AddForce(gravityDirectionVector);
+        rb.AddForce(gravityDirectionVector, ForceMode.Acceleration);
 
 
 
@@ -181,13 +205,14 @@ public class PlayerMovementScriptNew : MonoBehaviour
         */
 
 
+        /*
         if (rotationTimeLeft > 0)
         {
-            
+
             Vector3 rotateDirection = (rotateTowards.transform.position - transform.position).normalized;
             Quaternion toRotation = Quaternion.FromToRotation(Vector3.up * -1, rotateDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 0.1f);
-            
+
 
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, targetAngle, Time.deltaTime * rotationSpeed);
@@ -196,7 +221,21 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
             rotationTimeLeft -= Time.deltaTime;
         }
+        */
+        
+        if (rotationTimer <= rotationTime)
+        {
+            rotationTimer += Time.fixedDeltaTime;
+            rotationTimeLeft -= Time.deltaTime;
 
+            Vector3 rotateDirection = (rotateTowards.transform.position - transform.position).normalized;
+            Quaternion toRotation = Quaternion.FromToRotation(Vector3.up * -1, rotateDirection);
+            //Quaternion toRotation = Quaternion.LookRotation(Vector3.up * -1, rotateDirection);
+
+            transform.rotation = Quaternion.Lerp(startRotation, toRotation, rotationTimer / rotationTime);
+
+        }
+        
 
 
 
@@ -278,31 +317,45 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
         if (gravityDirection == GravityDirection.XPlus)
         {
-            gravityDirectionVector = new Vector3(gravity * rb.mass, 0, 0);
+            gravityDirectionVector = new Vector3(gravity, 0, 0);
         }
         if (gravityDirection == GravityDirection.XMinus)
         {
-            gravityDirectionVector = new Vector3(-gravity * rb.mass, 0, 0);
+            gravityDirectionVector = new Vector3(-gravity, 0, 0);
         }
         if (gravityDirection == GravityDirection.YPlus)
         {
-            gravityDirectionVector = new Vector3(0, gravity * rb.mass, 0);
+            gravityDirectionVector = new Vector3(0, gravity, 0);
         }
         if (gravityDirection == GravityDirection.YMinus)
         {
-            gravityDirectionVector = new Vector3(0, -gravity * rb.mass, 0);
+            gravityDirectionVector = new Vector3(0, -gravity, 0);
         }
         if (gravityDirection == GravityDirection.ZPlus)
         {
-            gravityDirectionVector = new Vector3(0, 0, gravity * rb.mass);
+            gravityDirectionVector = new Vector3(0, 0, gravity);
         }
         if (gravityDirection == GravityDirection.ZMinus)
         {
-            gravityDirectionVector = new Vector3(0, 0, -gravity * rb.mass);
+            gravityDirectionVector = new Vector3(0, 0, -gravity);
         }
 
         gravityChangeCooldownLeft = gravityChangeCooldown;
         rotationTimeLeft = rotationTime;
+
+
+
+
+
+
+        //TEST
+
+
+
+        startRotation = transform.rotation;
+        rotationTimer = 0;
+
+
     }
 
 }

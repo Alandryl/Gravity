@@ -33,7 +33,7 @@
         }
     },
     "texturesets": {
-        "Button_Ground_01": {
+        "Cliff_01": {
             "shader": "Main shader"
         }
     }
