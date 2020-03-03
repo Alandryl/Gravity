@@ -40,10 +40,10 @@ public class PlayerMovementScriptNew : MonoBehaviour
     //TEST
     private float rotationTimer;
     private Quaternion startRotation;
+    private Vector3 startDirection;
 
 
-
-
+    Vector3 rotateDirection = new Vector3(0, 0, 0);
 
 
 
@@ -165,7 +165,7 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
 
-       
+
 
         //Grounded
 
@@ -222,20 +222,29 @@ public class PlayerMovementScriptNew : MonoBehaviour
             rotationTimeLeft -= Time.deltaTime;
         }
         */
-        
+
+
+
+
+
+
         if (rotationTimer <= rotationTime)
         {
+
             rotationTimer += Time.fixedDeltaTime;
             rotationTimeLeft -= Time.deltaTime;
 
-            Vector3 rotateDirection = (rotateTowards.transform.position - transform.position).normalized;
+            //rotateDirection = ((rotateTowards.transform.position - transform.position) + startDirection).normalized;
+            rotateDirection = (rotateTowards.transform.position - transform.position).normalized;
+
             Quaternion toRotation = Quaternion.FromToRotation(Vector3.up * -1, rotateDirection);
-            //Quaternion toRotation = Quaternion.LookRotation(Vector3.up * -1, rotateDirection);
 
             transform.rotation = Quaternion.Lerp(startRotation, toRotation, rotationTimer / rotationTime);
 
+
+            //transform.LookAt(rotateTowards.transform, -transform.up);
         }
-        
+
 
 
 
@@ -271,7 +280,7 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
         if (gravityDirection == GravityDirection.XPlus)
         {
-             raycastStart = new Vector3(transform.localPosition.x - 0.1f, transform.localPosition.y, transform.localPosition.z);
+            raycastStart = new Vector3(transform.localPosition.x - 0.1f, transform.localPosition.y, transform.localPosition.z);
         }
         if (gravityDirection == GravityDirection.XMinus)
         {
@@ -353,6 +362,7 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
 
         startRotation = transform.rotation;
+        startDirection = transform.up;
         rotationTimer = 0;
 
 
