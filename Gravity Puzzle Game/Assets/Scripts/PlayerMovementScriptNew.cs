@@ -263,6 +263,14 @@ public class PlayerMovementScriptNew : MonoBehaviour
         {
             gravityChangeCooldownLeft -= Time.deltaTime;
         }
+
+        //Reset Gravity
+
+        if (canJump && Input.GetButtonDown("ResetGravity") && gravityDirection != GravityDirection.YMinus)
+        {
+            gravityDirection = GravityDirection.YMinus;
+        }
+
     }
 
     /*
