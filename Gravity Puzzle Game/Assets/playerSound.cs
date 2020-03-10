@@ -4,37 +4,42 @@ using UnityEngine;
 
 public class playerSound : MonoBehaviour
 {
+    [FMODUnity.EventRef]
+    public string inputSoundFootsteps;
+    [FMODUnity.EventRef]
+    public string inputSoundJump;
+
     PlayerMovementScriptNew movementScript;
+    public float walkingSpeed = 0.5f;
 
-    //Audio
-    AudioSource audioSource;
-    public AudioClip audioStep;
-
-    float footstepTimer = 0.5f;
-    float footstepCountdown = 0f;
 
     void Start()
     {
         movementScript = GetComponent<PlayerMovementScriptNew>();
-        audioSource = GetComponent<AudioSource>();
+
+        InvokeRepeating("CallFootsteps", 0, walkingSpeed);
     }
 
     void Update()
     {
-        //Apply footstep sound
-        if (footstepCountdown > 0)
+        if (movementScript.grounded && movementScript.canJump && Input.GetButtonDown("Jump"))
         {
-            footstepCountdown -= Time.deltaTime;
+            CallJump();
         }
+    }
 
+
+    void CallFootsteps()
+    {
         if (movementScript.grounded &&
-            footstepCountdown <= 0 &&
             (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
         {
-            audioSource.pitch = (Random.Range(0.8f, 1.2f));
-            audioSource.volume = (Random.Range(0.8f, 1f));
-            audioSource.PlayOneShot(audioStep);
-            footstepCountdown = footstepTimer;
+            FMODUnity.RuntimeManager.PlayOneShot(inputSoundFootsteps);
         }
+    }
+
+    void CallJump()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(inputSoundJump);
     }
 }

@@ -1,0 +1,7 @@
+newmtl Floor_01
+map_Kd Floor_01_basecolor.png
+map_Pm Floor_01_metallicSmoothness.png
+bump Floor_01_normal.png
+Kd 1 1 1
+d 1
+

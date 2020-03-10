@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class PickupPlacementScript : MonoBehaviour
 {
+    PickUp pickupScript;
+
     public GameObject player;
     public GameObject GroundPlacerPivot;
-    public float raycastHeight = 3;
+    public float raycastHeight = 2;
     public GravityDirection gravityDirection;
 
     public Vector3 gravityDirectionVector;
 
     void Start()
     {
-        
+        pickupScript = GetComponentInParent<PickUp>();        
     }
 
     void Update()
@@ -65,6 +67,11 @@ public class PickupPlacementScript : MonoBehaviour
             if(hit.collider.tag == "Ground")
             {
                 GroundPlacerPivot.transform.position = hit.point;
+                pickupScript.canPlace = true;
+            }
+            else
+            {
+                pickupScript.canPlace = false;
             }
         }
     }

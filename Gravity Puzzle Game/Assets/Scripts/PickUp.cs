@@ -16,6 +16,11 @@ public class PickUp : MonoBehaviour
 
     public float pickUpRange = 3;
 
+
+
+    public bool canPlace;
+
+
     void Start()
     {
         
@@ -79,11 +84,11 @@ public class PickUp : MonoBehaviour
             }
             else if (selectedObject != null && carryingObject)
             {
-                selectedObject.GetComponent<Rigidbody>().isKinematic = true;
-
-                carryingObject = false;
-                selectedObject.GetComponent<Item>().pickedUp = false;
-                PlacePickup();
+                if (canPlace)
+                {
+                    carryingObject = false;
+                    PlacePickup();
+                }
             }
         }
 
@@ -120,7 +125,7 @@ public class PickUp : MonoBehaviour
 
     {
         GameObject objectBeingPlaced = selectedObject;
-        objectBeingPlaced.transform.position = placementSpot.transform.position;
+        //objectBeingPlaced.transform.position = placementSpot.transform.position;
 
         objectBeingPlaced.GetComponent<Collider>().enabled = true;
 
@@ -132,7 +137,9 @@ public class PickUp : MonoBehaviour
 
         //objectBeingPlaced.transform.position = Vector3.Lerp(objectBeingPlaced.transform.position, placementSpot.transform.position, Time.deltaTime);
 
-        objectBeingPlaced.transform.position = Vector3.Lerp(objectBeingPlaced.transform.position, placementSpot.transform.position, Time.deltaTime);
+        //objectBeingPlaced.transform.position = Vector3.Lerp(objectBeingPlaced.transform.position, placementSpot.transform.position, Time.deltaTime);
+
+        selectedObject.GetComponent<Item>().pickedUp = false;
 
         selectedObject = null;
     }
