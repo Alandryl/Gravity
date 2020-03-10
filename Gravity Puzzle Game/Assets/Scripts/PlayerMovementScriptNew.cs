@@ -31,9 +31,7 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
 
     Vector3 velocity;
-
-
-
+    
 
 
 
@@ -109,7 +107,6 @@ public class PlayerMovementScriptNew : MonoBehaviour
         // Apply a force that attempts to reach our target velocity
         velocity = rb.velocity;
         Vector3 velocityChange = (targetVelocity - velocity);
-
 
 
 

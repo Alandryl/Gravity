@@ -7,6 +7,8 @@ public class Item : MonoBehaviour
     Vector3 startPosition;
     Quaternion startRotation;
 
+    public bool pickedUp = false;
+
     void Start()
     {
         startPosition = transform.position;

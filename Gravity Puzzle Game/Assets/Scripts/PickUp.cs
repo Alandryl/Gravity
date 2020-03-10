@@ -32,20 +32,24 @@ public class PickUp : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, pickUpRange) && selectedObject == null)
         {
-            if (hit.collider.tag == "Pickup" || hit.collider.tag == "Interactable")
+            if (hit.collider.tag == "Pickup" || hit.collider.tag == "Interactable" || hit.collider.transform.parent.gameObject.tag == "Pickup")
             {
                 selectableObject = hit.collider.gameObject;
 
-                if (hit.collider.tag == "Pickup")
+                if (hit.collider.transform.parent.gameObject.tag == "Pickup")
+                {
+                    selectableObject = hit.collider.transform.parent.gameObject;
+                }
+
+                if (selectableObject.tag == "Pickup")
                 {
                     canPickup = true;
                 }
-                if (hit.collider.tag == "Interactable")
+                if (selectableObject.tag == "Interactable")
                 {
                     canInteract = true;
                 }
             }
-
         }
         else
         {
@@ -71,12 +75,14 @@ public class PickUp : MonoBehaviour
                 //selectedObject.GetComponent<Collider>().enabled = false;
 
                 selectedObject.GetComponent<Rigidbody>().isKinematic = false;
+                selectedObject.GetComponent<Item>().pickedUp = true;
             }
             else if (selectedObject != null && carryingObject)
             {
                 selectedObject.GetComponent<Rigidbody>().isKinematic = true;
 
                 carryingObject = false;
+                selectedObject.GetComponent<Item>().pickedUp = false;
                 PlacePickup();
             }
         }
@@ -127,7 +133,6 @@ public class PickUp : MonoBehaviour
         //objectBeingPlaced.transform.position = Vector3.Lerp(objectBeingPlaced.transform.position, placementSpot.transform.position, Time.deltaTime);
 
         objectBeingPlaced.transform.position = Vector3.Lerp(objectBeingPlaced.transform.position, placementSpot.transform.position, Time.deltaTime);
-
 
         selectedObject = null;
     }
