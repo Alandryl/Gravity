@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 972550530839578025}
   - component: {fileID: 958268481767818153}
   - component: {fileID: 958268481767818158}
+  - component: {fileID: 4476185691150559819}
   m_Layer: 8
   m_Name: Door_01
   m_TagString: Ground
@@ -427,4 +428,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fded00ea1b934444ad245f65a0c7497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  automaticOpen: 0
   audioclipOpen: {fileID: 8300000, guid: 356c229c98bf4b446a0b523d49963b86, type: 3}
+--- !u!114 &4476185691150559819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9110105904112913091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8091be0d1369a49ae27561df51cb16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AtivatedObject: {fileID: 9110105904112913091}
+  activated: 0
