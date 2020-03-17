@@ -10,8 +10,8 @@ public class SoundPlayer : MonoBehaviour
     [Header("Audio Clips")]
 
     public AudioClip audioToPlay;
-
     public AudioClip audioClipWallTransition;
+    public AudioClip audioDeath;
 
     void Start()
     {

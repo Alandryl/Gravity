@@ -11,6 +11,9 @@ public class PlayerMovementScriptNew : MonoBehaviour
     public float jumpHeight = 2.0f;
     public bool grounded = false;
 
+    public float maxFallForce = 25;
+    public float fallForce;
+
     Rigidbody rb;
 
     public GravityDirection gravityDirection;
@@ -95,6 +98,26 @@ public class PlayerMovementScriptNew : MonoBehaviour
                 }
             }
         }
+
+        // Height Fallen
+
+
+        if (!grounded)
+        {
+            fallForce = Mathf.Abs(rb.velocity.y);
+        }
+
+        if (grounded)
+        {
+            if (fallForce > maxFallForce)
+            {
+                GetComponent<Death>().dead = true;
+                fallForce = 0;
+                rb.velocity = Vector3.zero;
+            }
+        }
+
+
     }
 
     void FixedUpdate()
