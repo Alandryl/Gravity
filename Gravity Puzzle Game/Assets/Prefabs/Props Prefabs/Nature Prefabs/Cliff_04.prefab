@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8991382990091332919}
-  - component: {fileID: 116189310669887233}
-  - component: {fileID: 5953830058365217784}
+  - component: {fileID: 2953655361173169550}
+  - component: {fileID: 8973793396454038440}
   - component: {fileID: 8113458611495018106}
   m_Layer: 8
   m_Name: Cliff_04
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &116189310669887233
+--- !u!33 &2953655361173169550
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5376337978424876836}
   m_Mesh: {fileID: -257257517527456169, guid: e147a43edc9de9140a5fa6b743be3adc, type: 3}
---- !u!23 &5953830058365217784
+--- !u!23 &8973793396454038440
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
