@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 4101583161683229405}
   - component: {fileID: 523268594}
   - component: {fileID: 523268599}
+  - component: {fileID: 523268601}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -309,6 +310,8 @@ MonoBehaviour:
   canJump: 1
   jumpHeight: 2
   grounded: 0
+  maxFallForce: 25
+  fallForce: 0
   gravityDirection: 3
   currentGravityDirection: 3
   currentRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -451,6 +454,21 @@ MonoBehaviour:
   inputSoundFootsteps: event:/Footsteps
   inputSoundJump: event:/Jump
   walkingSpeed: 0.4
+--- !u!114 &523268601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665672267720115188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37db588b87943d0438825180a1a6bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dead: 0
+  respawnPoint: {fileID: 0}
+  BlackScreen: {fileID: 0}
 --- !u!1 &665672267754711974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1035,7 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 100, y: 100, z: 100}
+  m_BoxSize: {x: 200, y: 200, z: 200}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
