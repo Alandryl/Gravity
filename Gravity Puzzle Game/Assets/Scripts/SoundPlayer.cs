@@ -12,6 +12,9 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip audioToPlay;
     public AudioClip audioClipWallTransition;
     public AudioClip audioDeath;
+    public AudioClip audioMessageIntro;
+    public AudioClip audioMessageOutro;
+
 
     void Start()
     {
