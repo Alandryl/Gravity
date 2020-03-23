@@ -7,6 +7,7 @@ public class Rotator : MonoBehaviour
     Activation activator;
     AudioSource audioSource;
 
+    Quaternion currentAngle;
     Quaternion targetAngle;
     public float rotationSpeed = 3;
 
@@ -16,6 +17,7 @@ public class Rotator : MonoBehaviour
     {
         activator = GetComponent<Activation>();
         audioSource = GetComponent<AudioSource>();
+        currentAngle = transform.rotation;
         targetAngle = transform.rotation;
     }
 
@@ -29,6 +31,10 @@ public class Rotator : MonoBehaviour
         //Rotate
         transform.rotation = Quaternion.Slerp(transform.rotation, targetAngle, Time.deltaTime * rotationSpeed);
 
+        if (currentAngle == targetAngle)
+        {
+            currentAngle = targetAngle;
+        }
     }
 
     public void Rotate()
@@ -38,4 +44,10 @@ public class Rotator : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(soundActivation);
     }
+    /*
+    void OnCollisionEnter(Collision collision)
+    {
+        targetAngle = currentAngle;
+    }
+    */
 }
