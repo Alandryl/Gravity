@@ -6,6 +6,8 @@
         "Main shader": {
             "parameters": {
                 "Common Parameters": {
+                    "alpha_dither": false,
+                    "alpha_threshold": 0.33000001311302185,
                     "ao_intensity": 0.75,
                     "emissive_intensity": 1,
                     "horizonFade": 1.2999999523162842,
@@ -28,12 +30,12 @@
                     "sssType": 1
                 }
             },
-            "shader": "pbr-metal-rough",
+            "shader": "pbr-metal-rough-with-alpha-test",
             "shaderInstance": "Main shader"
         }
     },
     "texturesets": {
-        "Cliff_01": {
+        "Door_01": {
             "shader": "Main shader"
         }
     }

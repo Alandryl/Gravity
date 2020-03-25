@@ -41,10 +41,13 @@ public class Lift : MonoBehaviour
             LiftObject.transform.position = Vector3.MoveTowards(LiftObject.transform.position, targetPoint.transform.position, step);
         }
 
-        if (LiftObject.transform.position == targetPoint.transform.position && isMoving)
+        
+        if (LiftObject.transform.position.normalized == targetPoint.transform.position.normalized && isMoving)
         {
             StopLift();
         }
+        
+
     }
 
     public void MoveLift()

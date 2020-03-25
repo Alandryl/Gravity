@@ -6,6 +6,8 @@ public class Cube : MonoBehaviour
 {
     Rigidbody rb;
 
+    public bool grounded;
+
     public GameObject cube;
     Item itemScript;
 
@@ -26,11 +28,13 @@ public class Cube : MonoBehaviour
 
     void Update()
     {
-        if(itemScript.pickedUp == true)
+
+        if (itemScript.pickedUp == true)
         {
             gravityDirection = FindObjectOfType<PlayerMovementScriptNew>().gravityDirection;
             ChangeGravity();
 
+            transform.parent = null;
             rb.freezeRotation = false;
             cube.SetActive(false);
             active = false;
@@ -100,10 +104,12 @@ public class Cube : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" && itemScript.pickedUp == false)
         {
             active = true;
             cube.SetActive(true);
+            transform.parent = collision.transform;
+            rb.isKinematic = true;
         }
     }
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1644793519113414657}
   - component: {fileID: 5039514337771083000}
   - component: {fileID: 6207793013471861753}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rotator_Cube_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
