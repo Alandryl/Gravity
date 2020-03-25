@@ -8,6 +8,7 @@ TagManager:
   - Pickup
   - Interactable
   - Hazard
+  - RespawnZone
   layers:
   - Default
   - TransparentFX
