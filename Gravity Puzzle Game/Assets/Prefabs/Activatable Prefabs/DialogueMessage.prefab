@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2358591720438876299}
   - component: {fileID: 2358591720438876298}
   - component: {fileID: 2358591720438876293}
+  - component: {fileID: 8996556884997762292}
   m_Layer: 0
   m_Name: DialogueMessage
   m_TagString: Untagged
@@ -59,5 +60,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundPlayer: {fileID: 0}
   audioSource: {fileID: 0}
-  dialogueToPlay: {fileID: 0}
-  dialogueText: 
+  oneTimePlay: 1
+  IntroOutro: 1
+  DialogueClipList: []
+  DialogueTextList: []
+  dialogueNumberToPlay: 0
+--- !u!114 &8996556884997762292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358591720438876292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8091be0d1369a49ae27561df51cb16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AtivatedObject: {fileID: 2358591720438876292}
+  activated: 0

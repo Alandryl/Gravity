@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cube : MonoBehaviour
 {
     Rigidbody rb;
+    AudioSource audioSource;
 
     public bool grounded;
 
@@ -18,9 +19,12 @@ public class Cube : MonoBehaviour
     public float gravity = 10.0f;
 
 
+    public AudioClip audioActivate;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         itemScript = GetComponent<Item>();
 
         ChangeGravity();
@@ -110,6 +114,7 @@ public class Cube : MonoBehaviour
             cube.SetActive(true);
             transform.parent = collision.transform;
             rb.isKinematic = true;
+            audioSource.PlayOneShot(audioActivate);
         }
     }
 }

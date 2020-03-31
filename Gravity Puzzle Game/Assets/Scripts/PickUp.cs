@@ -35,6 +35,38 @@ public class PickUp : MonoBehaviour
 
         Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * pickUpRange, Color.yellow);
 
+        
+
+        if (Physics.Raycast(ray, out hit, pickUpRange) && selectedObject == null)
+        {
+            if (hit.collider.tag == "Pickup" || hit.collider.tag == "Interactable" || hit.collider.transform.parent.gameObject.tag == "Pickup")
+            {
+
+                selectableObject = hit.collider.gameObject;
+
+                if (hit.collider.transform.parent.gameObject.tag == "Pickup")
+                {
+                    selectableObject = hit.collider.gameObject.GetComponentInParent<Item>().gameObject;
+                }
+
+                if (selectableObject.tag == "Pickup")
+                {
+                    canPickup = true;
+                }
+                if (selectableObject.tag == "Interactable")
+                {
+                    canInteract = true;
+                }
+            }
+        }
+        else
+        {
+            selectableObject = null;
+            canPickup = false;
+            canInteract = false;
+        }
+
+        /*
         if (Physics.Raycast(ray, out hit, pickUpRange) && selectedObject == null)
         {
             if (hit.collider.tag == "Pickup" || hit.collider.tag == "Interactable" || hit.collider.transform.parent.gameObject.tag == "Pickup")
@@ -62,6 +94,14 @@ public class PickUp : MonoBehaviour
             canPickup = false;
             canInteract = false;
         }
+        */
+
+
+
+
+
+
+
 
 
 

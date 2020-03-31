@@ -6,8 +6,6 @@
         "Main shader": {
             "parameters": {
                 "Common Parameters": {
-                    "alpha_dither": false,
-                    "alpha_threshold": 0.33000001311302185,
                     "ao_intensity": 0.75,
                     "emissive_intensity": 1,
                     "horizonFade": 1.2999999523162842,
@@ -30,12 +28,12 @@
                     "sssType": 1
                 }
             },
-            "shader": "pbr-metal-rough-with-alpha-test",
+            "shader": "pbr-metal-rough",
             "shaderInstance": "Main shader"
         }
     },
     "texturesets": {
-        "Door_01": {
+        "RoundLogoWall_01": {
             "shader": "Main shader"
         }
     }
