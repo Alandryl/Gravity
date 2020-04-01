@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    PlayerMovementScriptNew movementScript;
+
     public bool carryingObject;
     public bool canPickup;
     public bool canInteract;
@@ -23,7 +25,7 @@ public class PickUp : MonoBehaviour
 
     void Start()
     {
-        
+        movementScript = GetComponent<PlayerMovementScriptNew>();
     }
 
     void FixedUpdate()
@@ -113,7 +115,7 @@ public class PickUp : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (selectedObject == null && selectableObject != null && canPickup)
+            if (selectedObject == null && selectableObject != null && canPickup && movementScript.grounded)
             {
                 carryingObject = true;
                 selectedObject = selectableObject;

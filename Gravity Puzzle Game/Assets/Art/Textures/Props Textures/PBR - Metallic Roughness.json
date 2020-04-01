@@ -33,7 +33,7 @@
         }
     },
     "texturesets": {
-        "RoundLogoWall_01": {
+        "Contraption_Wall_01": {
             "shader": "Main shader"
         }
     }
