@@ -33,7 +33,7 @@
         }
     },
     "texturesets": {
-        "Contraption_Wall_01": {
+        "Crate_01": {
             "shader": "Main shader"
         }
     }

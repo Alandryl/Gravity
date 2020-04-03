@@ -71,7 +71,7 @@ public class PickupPlacementScript : MonoBehaviour
             }
             else
             {
-                pickupScript.canPlace = false;
+                pickupScript.canPlace = true;
             }
         }
     }
