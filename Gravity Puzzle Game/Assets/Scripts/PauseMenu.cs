@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused;
 
     public GameObject pauseMenuUI;
+    public GameObject pauseMenuMainUI;
+    public GameObject HowToPlayUI;
 
 
     [Header("UI")]
@@ -64,6 +66,9 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
+        pauseMenuMainUI.SetActive(true);
+        HowToPlayUI.SetActive(false);
+
         Time.timeScale = 0f;
         gameIsPaused = true;
         Cursor.visible = true;
