@@ -18,8 +18,10 @@ public class Cube : MonoBehaviour
     public Vector3 gravityDirectionVector;
     public float gravity = 10.0f;
 
-
     public AudioClip audioActivate;
+
+
+    float timeToActivate;
 
     void Start()
     {
@@ -51,11 +53,6 @@ public class Cube : MonoBehaviour
 
         }
 
-        if (active)
-        {
-            rb.isKinematic = true;
-        }
-
     }
 
     void FixedUpdate()
@@ -64,6 +61,22 @@ public class Cube : MonoBehaviour
         {
             rb.AddForce(gravityDirectionVector, ForceMode.Acceleration);
         }
+
+
+        if (rb.velocity.y == 0 && !active && itemScript.pickedUp == false)
+        {
+            timeToActivate -= Time.deltaTime;
+
+            if (timeToActivate <= 0f)
+            {
+                Activate();
+            }
+        }
+        else
+        {
+            timeToActivate = 3f;
+        }
+       
     }
 
     void ChangeGravity()
@@ -106,15 +119,23 @@ public class Cube : MonoBehaviour
         }
     }
 
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground" && itemScript.pickedUp == false)
         {
-            active = true;
-            cube.SetActive(true);
             transform.parent = collision.transform;
-            rb.isKinematic = true;
-            audioSource.PlayOneShot(audioActivate);
+            Activate();
         }
     }
+
+    void Activate()
+    {
+        active = true;
+        cube.SetActive(true);
+        rb.isKinematic = true;
+        audioSource.PlayOneShot(audioActivate);
+    }
+
+
 }

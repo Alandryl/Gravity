@@ -140,7 +140,7 @@ public class PickUp : MonoBehaviour
             //selectedObject.transform.rotation = pickupSlot.transform.rotation;
 
             selectedObject.transform.rotation = Quaternion.Lerp(selectedObject.transform.rotation, pickupSlot.transform.rotation, Time.deltaTime * 20);
-            selectedObject.transform.position = Vector3.Lerp(selectedObject.transform.position, pickupSlot.transform.position, Time.deltaTime * 20);
+            selectedObject.transform.position = Vector3.Lerp(selectedObject.transform.position, pickupSlot.transform.position, Time.deltaTime * 10);
         }
 
 
