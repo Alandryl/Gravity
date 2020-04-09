@@ -33,7 +33,7 @@
         }
     },
     "texturesets": {
-        "GravityChanger_180Turner_01": {
+        "GravityCore_01": {
             "shader": "Main shader"
         }
     }
