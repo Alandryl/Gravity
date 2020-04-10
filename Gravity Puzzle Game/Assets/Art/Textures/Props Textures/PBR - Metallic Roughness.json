@@ -33,7 +33,7 @@
         }
     },
     "texturesets": {
-        "GravityCore_01": {
+        "Bench_01": {
             "shader": "Main shader"
         }
     }

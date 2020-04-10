@@ -53,6 +53,12 @@ public class Cube : MonoBehaviour
 
         }
 
+        if (IsGrounded() && itemScript.pickedUp == false && !active)
+        {
+            Activate();
+        }
+
+
     }
 
     void FixedUpdate()
@@ -137,5 +143,41 @@ public class Cube : MonoBehaviour
         audioSource.PlayOneShot(audioActivate);
     }
 
+
+    public bool IsGrounded()
+    {
+        float DistanceToTheGround = GetComponent<Collider>().bounds.extents.y;
+
+        Vector3 raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.1f, transform.localPosition.z); ;
+
+        if (gravityDirection == GravityDirection.XPlus)
+        {
+            raycastStart = new Vector3(transform.localPosition.x - 0.1f, transform.localPosition.y, transform.localPosition.z);
+        }
+        if (gravityDirection == GravityDirection.XMinus)
+        {
+            raycastStart = new Vector3(transform.localPosition.x + 0.1f, transform.localPosition.y, transform.localPosition.z);
+        }
+        if (gravityDirection == GravityDirection.YPlus)
+        {
+            raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y - 0.1f, transform.localPosition.z);
+        }
+        if (gravityDirection == GravityDirection.YMinus)
+        {
+            raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.1f, transform.localPosition.z);
+        }
+        if (gravityDirection == GravityDirection.ZPlus)
+        {
+            raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 0.1f);
+        }
+        if (gravityDirection == GravityDirection.ZMinus)
+        {
+            raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.1f);
+        }
+
+        Debug.DrawRay(raycastStart, -transform.up * 1, Color.green);
+        return Physics.Raycast(raycastStart, -transform.up, DistanceToTheGround - 0.25f);
+
+    }
 
 }

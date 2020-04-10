@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class PauseMenu : MonoBehaviour
 {
+    Stats stats;
+
     public static bool gameIsPaused;
 
     public GameObject pauseMenuUI;
@@ -12,12 +16,24 @@ public class PauseMenu : MonoBehaviour
     public GameObject HowToPlayUI;
 
 
+    Text gravityCoresCollectedText;
+
+
     [Header("UI")]
     GameObject black;
     Animator blackAnim;
 
+    [HideInInspector] public int gravityCoresCollected;
+     
+
+
     void Awake()
     {
+        stats = FindObjectOfType<Stats>();
+        gravityCoresCollectedText = GameObject.Find("GravityCoresCollectedText").GetComponent<Text>();
+
+
+
         gameIsPaused = false;
         pauseMenuUI.SetActive(false);
         Cursor.visible = false;
@@ -40,6 +56,12 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
+        gravityCoresCollected = stats.gravityCoresCollected;
+        string gravityCoresCollectedString = gravityCoresCollected.ToString();
+
+        gravityCoresCollectedText.text = gravityCoresCollectedString;
+
     }
 
     public void Resume()

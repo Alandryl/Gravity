@@ -171,17 +171,18 @@ public class PickUp : MonoBehaviour
 
         objectBeingPlaced.GetComponent<Collider>().enabled = true;
 
-        Vector3 vec = objectBeingPlaced.transform.eulerAngles;
-        vec.x = Mathf.Round(vec.x / 90) * 90;
-        vec.y = Mathf.Round(vec.y / 90) * 90;
-        vec.z = Mathf.Round(vec.z / 90) * 90;
-        objectBeingPlaced.transform.eulerAngles = vec;
 
         //objectBeingPlaced.transform.position = Vector3.Lerp(objectBeingPlaced.transform.position, placementSpot.transform.position, Time.deltaTime);
 
         //objectBeingPlaced.transform.position = Vector3.Lerp(objectBeingPlaced.transform.position, placementSpot.transform.position, Time.deltaTime);
 
         selectedObject.GetComponent<Item>().pickedUp = false;
+
+        Vector3 vec = objectBeingPlaced.transform.eulerAngles;
+        vec.x = Mathf.Round(vec.x / 90) * 90;
+        vec.y = Mathf.Round(vec.y / 90) * 90;
+        vec.z = Mathf.Round(vec.z / 90) * 90;
+        objectBeingPlaced.transform.eulerAngles = vec;
 
         selectedObject = null;
     }
