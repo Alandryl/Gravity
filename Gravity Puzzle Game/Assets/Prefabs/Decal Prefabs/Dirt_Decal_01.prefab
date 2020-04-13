@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baked: 0
-  bakeOnAwake: 0
+  bakeOnAwake: 1
   flipNormals: 0
   backfaceCulling: 1
   distance: 0.001
@@ -55,9 +55,9 @@ MonoBehaviour:
   deferredFlags: 0
   inclusion: 0
   transformObserver:
-    lastPosition: {x: 118.28, y: 1.706, z: 34}
-    lastScale: {x: 6, y: 1, z: 4.006163}
-    lastRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+    lastPosition: {x: 0, y: 0, z: 0}
+    lastScale: {x: 1, y: 1, z: 0.9659267}
+    lastRotation: {x: 0, y: 0, z: 0, w: 1}
     transform: {fileID: 76588179320378598}
   needsDynamicGeometry: 1
   Mask:
@@ -126,7 +126,7 @@ MonoBehaviour:
   surfaceRotation: 0
   quality: 1
   sharedMesh: {fileID: 0}
-  instanceID: -250378
+  instanceID: 106390
 --- !u!1 &76588179337000522
 GameObject:
   m_ObjectHideFlags: 0

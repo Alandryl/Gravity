@@ -84,3 +84,10 @@ MonoBehaviour:
       y: 0.75
       width: 0.125
       height: 0.125
+  - name: Arrow
+    region:
+      serializedVersion: 2
+      x: 0.875
+      y: 0
+      width: 0.125
+      height: 0.125
