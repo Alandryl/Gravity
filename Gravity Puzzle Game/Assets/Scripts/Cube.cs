@@ -46,6 +46,15 @@ public class Cube : MonoBehaviour
             active = false;
         }
 
+        if (!IsGrounded())
+        {
+            transform.parent = null;
+            rb.freezeRotation = false;
+            cube.SetActive(false);
+            active = false;
+        }
+
+        
         if (itemScript.pickedUp == false && active == false)
         {
             rb.freezeRotation = true;
@@ -90,38 +99,33 @@ public class Cube : MonoBehaviour
         if (gravityDirection == GravityDirection.XPlus)
         {
             gravityDirectionVector = new Vector3(gravity * rb.mass, 0, 0);
-            rb.constraints = RigidbodyConstraints.FreezePositionY;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+
         }
         if (gravityDirection == GravityDirection.XMinus)
         {
             gravityDirectionVector = new Vector3(-gravity * rb.mass, 0, 0);
-            rb.constraints = RigidbodyConstraints.FreezePositionY;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
         }
         if (gravityDirection == GravityDirection.YPlus)
         {
             gravityDirectionVector = new Vector3(0, gravity * rb.mass, 0);
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         }
         if (gravityDirection == GravityDirection.YMinus)
         {
             gravityDirectionVector = new Vector3(0, -gravity * rb.mass, 0);
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         }
         if (gravityDirection == GravityDirection.ZPlus)
         {
             gravityDirectionVector = new Vector3(0, 0, gravity * rb.mass);
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
-            rb.constraints = RigidbodyConstraints.FreezePositionY;
+            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
         }
         if (gravityDirection == GravityDirection.ZMinus)
         {
             gravityDirectionVector = new Vector3(0, 0, -gravity );
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
-            rb.constraints = RigidbodyConstraints.FreezePositionY;
+            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
         }
     }
 
@@ -130,7 +134,7 @@ public class Cube : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground" && itemScript.pickedUp == false)
         {
-            transform.parent = collision.transform;
+            //transform.parent = collision.transform;
             Activate();
         }
     }
@@ -139,7 +143,7 @@ public class Cube : MonoBehaviour
     {
         active = true;
         cube.SetActive(true);
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
         audioSource.PlayOneShot(audioActivate);
     }
 

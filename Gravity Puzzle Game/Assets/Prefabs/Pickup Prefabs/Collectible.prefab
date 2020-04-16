@@ -4939,7 +4939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027206625129979222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1027206625383732378}
@@ -19387,11 +19387,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1027206625383732378}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 9c941d88e4156f848b4091d8666002d4,
-        type: 3}
-      propertyPath: m_Name
-      value: GravityCore_01
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9c941d88e4156f848b4091d8666002d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19461,6 +19456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9c941d88e4156f848b4091d8666002d4,
+        type: 3}
+      propertyPath: m_Name
+      value: GravityCore_01
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 9c941d88e4156f848b4091d8666002d4,
         type: 3}

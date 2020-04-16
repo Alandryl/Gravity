@@ -15,6 +15,7 @@ public class PickUp : MonoBehaviour
     public GameObject selectableObject;
     public GameObject selectedObject;
     public GameObject pickupSlot;
+    public GameObject uiPickupMarker;
 
     public float pickUpRange = 3;
 
@@ -26,6 +27,8 @@ public class PickUp : MonoBehaviour
     void Start()
     {
         movementScript = GetComponent<PlayerMovementScriptNew>();
+
+        uiPickupMarker = GameObject.Find("PickupMarker");
     }
 
     void FixedUpdate()
@@ -158,6 +161,16 @@ public class PickUp : MonoBehaviour
         }
         
 
+        //UI Marker
+
+        if (selectedObject == null && selectableObject != null)
+        {
+            uiPickupMarker.SetActive(true);
+        }
+        else
+        {
+            uiPickupMarker.SetActive(false);
+        }
 
     }
 
