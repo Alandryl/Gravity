@@ -39,9 +39,7 @@ public class PickUp : MonoBehaviour
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
         Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * pickUpRange, Color.yellow);
-
-        
-
+      
         if (Physics.Raycast(ray, out hit, pickUpRange) && selectedObject == null)
         {
             if (hit.collider.tag == "Pickup" || hit.collider.tag == "Interactable" || hit.collider.transform.parent.gameObject.tag == "Pickup")
@@ -63,6 +61,12 @@ public class PickUp : MonoBehaviour
                     canInteract = true;
                 }
             }
+            else
+            {
+                selectableObject = null;
+                canPickup = false;
+                canInteract = false;
+            }
         }
         else
         {
@@ -70,6 +74,8 @@ public class PickUp : MonoBehaviour
             canPickup = false;
             canInteract = false;
         }
+
+
 
         /*
         if (Physics.Raycast(ray, out hit, pickUpRange) && selectedObject == null)

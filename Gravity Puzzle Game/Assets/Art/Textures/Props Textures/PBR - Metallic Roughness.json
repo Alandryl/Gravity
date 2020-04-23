@@ -33,7 +33,7 @@
         }
     },
     "texturesets": {
-        "Bench_01": {
+        "ComputerScreen_01": {
             "shader": "Main shader"
         }
     }
