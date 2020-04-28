@@ -42,7 +42,7 @@ public class ScreenButton : MonoBehaviour
     {
         if (activator.activated)
         {
-            if (stats.gravityCoresCollected >= requiredGravityCores)
+            if (stats.gravityCoresCollected >= requiredGravityCores && stats.hasGravityBoots == true)
             {
                 buttonPressed();
             }

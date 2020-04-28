@@ -50,7 +50,7 @@ public class Door : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && automaticOpen)
         {
             open = true;
             anim.SetBool("isOpen", true);
@@ -60,7 +60,7 @@ public class Door : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && automaticOpen)
         {
             open = false;
             anim.SetBool("isOpen", false);

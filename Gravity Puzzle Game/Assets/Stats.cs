@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
+    public bool hasGravityBoots = false;
     public int gravityCoresCollected = 0;
 
 
