@@ -14,6 +14,7 @@ public class ScreenButton : MonoBehaviour
 
     public int requiredGravityCores;
     public Text requiredGravityCoresText;
+    public bool requiresBoots = false;
 
     [Header("Screens")]
     public GameObject ActivateScreen;
@@ -42,9 +43,20 @@ public class ScreenButton : MonoBehaviour
     {
         if (activator.activated)
         {
-            if (stats.gravityCoresCollected >= requiredGravityCores && stats.hasGravityBoots == true)
+            if (stats.gravityCoresCollected >= requiredGravityCores)
             {
-                buttonPressed();
+                if (requiresBoots && stats.hasGravityBoots)
+                {
+                    buttonPressed();
+                }
+                else if (!requiresBoots)
+                {
+                    buttonPressed();
+                }
+                else
+                {
+                    StartCoroutine(Denied());
+                }
             }
             else
             {
