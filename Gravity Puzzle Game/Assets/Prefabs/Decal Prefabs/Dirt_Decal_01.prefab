@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baked: 0
-  bakeOnAwake: 1
+  bakeOnAwake: 0
   flipNormals: 0
   backfaceCulling: 1
   distance: 0.001
@@ -126,7 +126,7 @@ MonoBehaviour:
   surfaceRotation: 0
   quality: 1
   sharedMesh: {fileID: 0}
-  instanceID: 106390
+  instanceID: 3978382
 --- !u!1 &76588179337000522
 GameObject:
   m_ObjectHideFlags: 0
