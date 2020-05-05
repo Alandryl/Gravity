@@ -304,31 +304,31 @@ public class PlayerMovementScriptNew : MonoBehaviour
     {
         float DistanceToTheGround = GetComponent<Collider>().bounds.extents.y;
 
-        Vector3 raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.1f, transform.localPosition.z); ;
+        Vector3 raycastStart = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z); ;
 
         if (gravityDirection == GravityDirection.XPlus)
         {
-            raycastStart = new Vector3(transform.localPosition.x - 0.1f, transform.localPosition.y, transform.localPosition.z);
+            raycastStart = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
         }
         if (gravityDirection == GravityDirection.XMinus)
         {
-            raycastStart = new Vector3(transform.localPosition.x + 0.1f, transform.localPosition.y, transform.localPosition.z);
+            raycastStart = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
         }
         if (gravityDirection == GravityDirection.YPlus)
         {
-            raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y - 0.1f, transform.localPosition.z);
+            raycastStart = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
         }
         if (gravityDirection == GravityDirection.YMinus)
         {
-            raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.1f, transform.localPosition.z);
+            raycastStart = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
         }
         if (gravityDirection == GravityDirection.ZPlus)
         {
-            raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 0.1f);
+            raycastStart = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.1f);
         }
         if (gravityDirection == GravityDirection.ZMinus)
         {
-            raycastStart = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.1f);
+            raycastStart = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f);
         }
 
         Debug.DrawRay(raycastStart, -transform.up * 1, Color.green);

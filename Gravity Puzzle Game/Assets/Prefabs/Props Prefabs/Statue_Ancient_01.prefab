@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4266050997437859991}
   - component: {fileID: 5075284618726552225}
   - component: {fileID: 1536713819923467864}
-  m_Layer: 0
+  - component: {fileID: 5131864547638825987}
+  m_Layer: 8
   m_Name: Statue_Ancient_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5131864547638825987
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968088237583825540}
+  m_Material: {fileID: 13400000, guid: 606c4792848e23645b84eb2ca5faba43, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 175866789366131779, guid: 016c12b8f97738f419ae09d68358663e, type: 3}
