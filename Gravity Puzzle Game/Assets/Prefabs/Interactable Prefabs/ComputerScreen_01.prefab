@@ -117,8 +117,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 5
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -153,7 +153,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -209,6 +209,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   requiredGravityCores: 0
   requiredGravityCoresText: {fileID: 6579380141831700378}
+  requiresBoots: 0
   ActivateScreen: {fileID: 6579380141739278462}
   DeniedScreen: {fileID: 6579380142021039240}
   audioActivated: {fileID: 8300000, guid: af76cc7f27a8665479b47b76701fdff6, type: 3}
