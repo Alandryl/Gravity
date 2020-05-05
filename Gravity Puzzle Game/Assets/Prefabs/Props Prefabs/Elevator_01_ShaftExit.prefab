@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2855603077324599}
   - component: {fileID: 9030037867652719873}
   - component: {fileID: 3345518062031854072}
+  - component: {fileID: 6770396273916373278}
   m_Layer: 8
   m_Name: Elevator_01_ShaftExit
   m_TagString: Ground
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6770396273916373278
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3914046985964743972}
+  m_Material: {fileID: 13400000, guid: 606c4792848e23645b84eb2ca5faba43, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2410345655260618469, guid: 842a8583acfe58d439e3213183dcfcd2, type: 3}

@@ -12,8 +12,12 @@ public class ElevatorFloorSelection : MonoBehaviour
     public int selectedFloor = 2;
 
     public Activation floor1;
+    public bool floor1Unlocked = false;
     public Activation floor2;
+    public bool floor2Unlocked = false;
     public Activation floor3;
+    public bool floor3Unlocked = false;
+
 
     [Header("Screens")]
     public GameObject floorSelectionScreen;
@@ -32,23 +36,44 @@ public class ElevatorFloorSelection : MonoBehaviour
     {
         if (floor1.activated)
         {
+            if (floor1Unlocked)
+            {
+                buttonPressed();
+                selectedFloor = 1;
+            }
+            else
+            {
+                StartCoroutine(Denied());
+            }
             floor1.activated = false;
-            buttonPressed();
-            selectedFloor = 1;
         }
 
         if (floor2.activated)
         {
+            if (floor2Unlocked)
+            {
+                buttonPressed();
+                selectedFloor = 2;
+            }
+            else
+            {
+                StartCoroutine(Denied());
+            }
             floor2.activated = false;
-            buttonPressed();
-            selectedFloor = 2;
         }
 
         if (floor3.activated)
         {
+            if (floor3Unlocked)
+            {
+                buttonPressed();
+                selectedFloor = 3;
+            }
+            else
+            {
+                StartCoroutine(Denied());
+            }
             floor3.activated = false;
-            buttonPressed();
-            selectedFloor = 3;
         }
     }
 

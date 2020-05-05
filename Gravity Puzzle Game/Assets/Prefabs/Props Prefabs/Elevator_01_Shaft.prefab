@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7220422879867598353}
   - component: {fileID: 1832717544479476775}
   - component: {fileID: 5355791021380251870}
+  - component: {fileID: 7097222918953657009}
   m_Layer: 8
   m_Name: Elevator_01_Shaft
   m_TagString: Ground
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7097222918953657009
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940038462224368642}
+  m_Material: {fileID: 13400000, guid: 606c4792848e23645b84eb2ca5faba43, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5970405886437364160, guid: d9bfb327fb3f395468f80240ac3608da, type: 3}
