@@ -11,9 +11,11 @@ public class Tooltip : MonoBehaviour
     bool activated;
     public bool oneTimePlay = true;
 
-    public string tooltilText;
-
     public float displayTime = 8;
+
+
+    [TextArea]
+    public string tooltilText;
 
     void Start()
     {
@@ -43,11 +45,12 @@ public class Tooltip : MonoBehaviour
         activated = true;
         GameObject tooltip = GameObject.Find("Tooltip");
         GameObject tooltipTextObject = GameObject.Find("TooltipText");
+        tooltip.SetActive(true);
 
         tooltip.GetComponent<Animator>().SetBool("Visible", true);
         tooltipTextObject.GetComponent<Text>().text = tooltilText.ToString();
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(displayTime);
 
         tooltip.GetComponent<Animator>().SetBool("Visible", false);
 
@@ -56,6 +59,6 @@ public class Tooltip : MonoBehaviour
         if (!oneTimePlay)
         {
             activated = false;
-        }       
+        }
     }
 }
