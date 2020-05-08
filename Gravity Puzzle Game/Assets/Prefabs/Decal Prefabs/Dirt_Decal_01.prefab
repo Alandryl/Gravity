@@ -50,7 +50,7 @@ MonoBehaviour:
   flipNormals: 0
   backfaceCulling: 1
   distance: 0.001
-  angleConstraint: 180
+  angleConstraint: 85
   technique: 4
   deferredFlags: 0
   inclusion: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   cullInvisible: 0
   cullUnreachable: 0
   showVertices: 0
-  showDir: 0
+  showDir: 1
   showNormals: 0
   enableVertexColorFade: 0
   onlyColliders: 1
