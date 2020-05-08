@@ -1,6 +1,6 @@
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-// Canvas shader utils. Version 1.3
+// Canvas shader utils. v1.3
 // Copyright (c) by Sycoforge
 
 #define RGB_ 0
@@ -102,6 +102,7 @@ inline float4 ClampClipSpace(half2 uv, float4 color)
 
 	return color;	
 }
+
 
 float4 DrawSeam(half2 uv, float4 color)
 {

@@ -13,6 +13,7 @@ Shader "Hidden/nu Assets/UI/CanvasSelection"
 			CGPROGRAM
 				#pragma vertex vert
 				#pragma fragment frag
+
 			
 				#include "UnityCG.cginc"
 				#include "CanvasUtil.cginc"
@@ -29,7 +30,6 @@ Shader "Hidden/nu Assets/UI/CanvasSelection"
 				fixed4 frag (v2f i) : SV_Target
 				{
 					half2 uv = TransformUV(i.texcoord);
-
 
 					fixed3 c = RectBorderClamped(uv, _Selection, _TexelSize);
 

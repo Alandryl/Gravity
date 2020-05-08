@@ -1,4 +1,4 @@
-// Unlit map preview shader. Based on Unity's "Unlit/Texture".  Version 1.3
+// Unlit map preview shader. Based on Unity's "Unlit/Texture".  v1.3
 // - no lighting
 // - no lightmap support
 // - no per-material color
@@ -40,7 +40,7 @@ Shader "Hidden/nu Assets/UI/CanvasChannels"
 
 					half2 uv = TransformUV(i.texcoord);
 					fixed4 col =  tex2D(_MainTex, uv);
-					
+
 					// Won't compile on OSX
 					//col =    _Channel == RGB_ ? fixed4(col.rgb, 1.0h) : 
 					//		(_Channel == RGBA_ ? col :
