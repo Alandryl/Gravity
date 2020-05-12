@@ -33,7 +33,7 @@
         }
     },
     "texturesets": {
-        "ComputerScreen_01": {
+        "GravityCube_01": {
             "shader": "Main shader"
         }
     }
