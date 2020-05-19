@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class playerSound : MonoBehaviour
 {
+    AudioSource audio;
+
     [FMODUnity.EventRef]
     public string inputSoundFootsteps;
     [FMODUnity.EventRef]
@@ -12,9 +14,16 @@ public class playerSound : MonoBehaviour
     PlayerMovementScriptNew movementScript;
     public float walkingSpeed = 0.5f;
 
+    bool isWalking;
+    public float StepStartDelay = 0.3f;
+    float timeTillFirstStep;
+
+
+    public AudioClip audioResetGravity;
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         movementScript = GetComponent<PlayerMovementScriptNew>();
 
         InvokeRepeating("CallFootsteps", 0, walkingSpeed);
@@ -26,6 +35,15 @@ public class playerSound : MonoBehaviour
         {
             CallJump();
         }
+
+        if (isWalking)
+        {
+            timeTillFirstStep += Time.deltaTime;
+        }
+        else
+        {
+            timeTillFirstStep = 0;
+        }
     }
 
 
@@ -34,12 +52,26 @@ public class playerSound : MonoBehaviour
         if (movementScript.grounded &&
             (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
         {
-            FMODUnity.RuntimeManager.PlayOneShot(inputSoundFootsteps);
+            isWalking = true;
+
+            if (timeTillFirstStep >= StepStartDelay)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(inputSoundFootsteps);
+            }
+        }
+        else
+        {
+            isWalking = false;
         }
     }
 
     void CallJump()
     {
         FMODUnity.RuntimeManager.PlayOneShot(inputSoundJump);
+    }
+
+    public void ResetGravity()
+    {
+        audio.PlayOneShot(audioResetGravity);
     }
 }

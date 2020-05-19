@@ -18,7 +18,8 @@ public class PickUp : MonoBehaviour
     public GameObject uiPickupMarker;
 
     public float pickUpRange = 3;
-
+    public float clickCooldown = 0.2f;
+    float clickCooldownTimer;
 
 
     public bool canPlace;
@@ -33,6 +34,11 @@ public class PickUp : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (clickCooldownTimer > 0f)
+        {
+            clickCooldownTimer -= Time.deltaTime;
+        }
+
         //Raycast hit pickup
 
         RaycastHit hit;
@@ -42,24 +48,14 @@ public class PickUp : MonoBehaviour
       
         if (Physics.Raycast(ray, out hit, pickUpRange) && selectedObject == null)
         {
-            if (hit.collider.tag == "Pickup" || hit.collider.tag == "Interactable" || hit.collider.transform.parent.gameObject.tag == "Pickup")
+            if (hit.collider.tag == "Pickup" || hit.collider.tag == "Interactable")
             {
-
                 selectableObject = hit.collider.gameObject;
+            }
+            else if (hit.collider.transform.parent.gameObject.tag == "Pickup")
+            {
+                selectableObject = hit.collider.gameObject.GetComponentInParent<Item>().gameObject;
 
-                if (hit.collider.transform.parent.gameObject.tag == "Pickup")
-                {
-                    selectableObject = hit.collider.gameObject.GetComponentInParent<Item>().gameObject;
-                }
-
-                if (selectableObject.tag == "Pickup")
-                {
-                    canPickup = true;
-                }
-                if (selectableObject.tag == "Interactable")
-                {
-                    canInteract = true;
-                }
             }
             else
             {
@@ -75,7 +71,23 @@ public class PickUp : MonoBehaviour
             canInteract = false;
         }
 
+        if (selectableObject != null)
+        {
+            if (selectableObject.tag == "Pickup")
+            {
+                canPickup = true;
+            }
 
+            if (selectableObject.tag == "Interactable")
+            {
+                canInteract = true;
+            }
+        }
+        else
+        {
+            canPickup = false;
+            canInteract = false;
+        }
 
         /*
         if (Physics.Raycast(ray, out hit, pickUpRange) && selectedObject == null)
@@ -124,8 +136,13 @@ public class PickUp : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (selectedObject == null && selectableObject != null && canPickup && movementScript.grounded)
+            
+
+            if (clickCooldownTimer <= 0f && selectedObject == null && selectableObject != null && canPickup && movementScript.grounded)
             {
+                clickCooldownTimer = clickCooldown;
+
+
                 carryingObject = true;
                 selectedObject = selectableObject;
                 //selectedObject.GetComponent<Collider>().enabled = false;
@@ -133,10 +150,12 @@ public class PickUp : MonoBehaviour
                 selectedObject.GetComponent<Rigidbody>().isKinematic = false;
                 selectedObject.GetComponent<Item>().pickedUp = true;
             }
-            else if (selectedObject != null && carryingObject)
+            else if (clickCooldownTimer <= 0f && selectedObject != null && carryingObject)
             {
                 if (canPlace)
                 {
+                    clickCooldownTimer = clickCooldown;
+
                     carryingObject = false;
                     PlacePickup();
                 }

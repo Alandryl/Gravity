@@ -7,6 +7,9 @@ public class Cube : MonoBehaviour
     Rigidbody rb;
     AudioSource audioSource;
 
+    bool pickedUp;
+    bool inSlot = true;
+
     public bool grounded;
 
     public GameObject cube;
@@ -23,6 +26,8 @@ public class Cube : MonoBehaviour
 
     float timeToActivate;
 
+    public float ActivationPause = 1f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,39 +35,37 @@ public class Cube : MonoBehaviour
         itemScript = GetComponent<Item>();
 
         ChangeGravity();
+        Reset();
     }
 
     void Update()
     {
 
-        if (itemScript.pickedUp == true)
+        if (itemScript.pickedUp == true && !pickedUp)
+        {
+            Pickup();
+        }
+
+        if (pickedUp)
         {
             gravityDirection = FindObjectOfType<PlayerMovementScriptNew>().gravityDirection;
             ChangeGravity();
-
-            transform.parent = null;
-            rb.freezeRotation = false;
-            cube.SetActive(false);
-            active = false;
         }
 
         if (!IsGrounded())
         {
             transform.parent = null;
-            rb.freezeRotation = false;
             cube.SetActive(false);
             active = false;
         }
 
         
-        if (itemScript.pickedUp == false && active == false)
+        if (itemScript.pickedUp == false && pickedUp)
         {
-            rb.freezeRotation = true;
-            rb.isKinematic = false;
-
+            Drop();
         }
 
-        if (IsGrounded() && itemScript.pickedUp == false && !active)
+        if (IsGrounded() && itemScript.pickedUp == false && !active && timeToActivate <= 0f)
         {
             Activate();
         }
@@ -77,7 +80,23 @@ public class Cube : MonoBehaviour
             rb.AddForce(gravityDirectionVector, ForceMode.Acceleration);
         }
 
+        if (timeToActivate > 0f)
+        {
+            timeToActivate -= Time.deltaTime;
+        }
 
+
+        if (itemScript.reset)
+        {
+            Reset();
+        }
+
+
+
+
+
+
+        /*
         if (rb.velocity.y == 0 && !active && itemScript.pickedUp == false)
         {
             timeToActivate -= Time.deltaTime;
@@ -89,9 +108,10 @@ public class Cube : MonoBehaviour
         }
         else
         {
-            timeToActivate = 3f;
+            timeToActivate = ActivationPause;
         }
-       
+        */
+
     }
 
     void ChangeGravity()
@@ -124,7 +144,7 @@ public class Cube : MonoBehaviour
         }
         if (gravityDirection == GravityDirection.ZMinus)
         {
-            gravityDirectionVector = new Vector3(0, 0, -gravity );
+            gravityDirectionVector = new Vector3(0, 0, -gravity * rb.mass);
             rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
         }
     }
@@ -139,11 +159,60 @@ public class Cube : MonoBehaviour
         }
     }
 
+    void Pickup()
+    {
+        timeToActivate = ActivationPause;
+
+        inSlot = false;
+        pickedUp = true;
+
+        transform.parent = null;
+        rb.freezeRotation = false;
+        cube.SetActive(false);
+        active = false;
+    }
+
+    void Drop()
+    {
+        pickedUp = false;
+        rb.freezeRotation = true;
+    }
+
     void Activate()
     {
+
         active = true;
-        cube.SetActive(true);
-        //rb.isKinematic = true;
+
+        if (!inSlot)
+        {
+            cube.SetActive(true);
+        }
+
+        rb.freezeRotation = true;
+        audioSource.PlayOneShot(audioActivate);
+
+
+        Vector3 vec = transform.eulerAngles;
+        vec.x = Mathf.Round(vec.x / 90) * 90;
+        vec.y = Mathf.Round(vec.y / 90) * 90;
+        vec.z = Mathf.Round(vec.z / 90) * 90;
+        transform.eulerAngles = vec;
+
+    }
+
+    void Reset()
+    {
+        itemScript.reset = false;
+
+
+        gravityDirection = GravityDirection.YMinus;
+        ChangeGravity();
+
+        inSlot = true;
+        timeToActivate = 0f;
+        cube.SetActive(false);
+        active = true;
+        rb.freezeRotation = true;
         audioSource.PlayOneShot(audioActivate);
     }
 

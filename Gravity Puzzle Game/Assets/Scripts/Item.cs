@@ -9,6 +9,8 @@ public class Item : MonoBehaviour
 
     public bool pickedUp = false;
 
+    public bool reset;
+
     void Start()
     {
         startPosition = transform.position;
@@ -24,9 +26,12 @@ public class Item : MonoBehaviour
     {
         PickUp pickup = FindObjectOfType<PickUp>();
         pickup.selectedObject = null;
-        GetComponent<Rigidbody>().isKinematic = true;
+        pickedUp = false;
+        //GetComponent<Rigidbody>().isKinematic = true;
 
         transform.position = startPosition;
         transform.rotation = startRotation;
+
+        reset = true;
     }
 }

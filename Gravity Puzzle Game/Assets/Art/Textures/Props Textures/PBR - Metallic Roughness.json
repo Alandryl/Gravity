@@ -33,7 +33,7 @@
         }
     },
     "texturesets": {
-        "GravityCube_01": {
+        "GoalSign_01": {
             "shader": "Main shader"
         }
     }

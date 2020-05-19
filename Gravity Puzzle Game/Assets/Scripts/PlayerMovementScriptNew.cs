@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovementScriptNew : MonoBehaviour
 {
+    playerSound sound;
+
     public float speed = 10.0f;
     public float gravity = 10.0f;
     public float maxVelocityChange = 10.0f;
@@ -52,8 +54,9 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
     void Start()
     {
+        sound = GetComponent<playerSound>();
         gravityDirectionVector = new Vector3(0, -gravity * rb.mass, 0);
-        newRotation = Quaternion.Euler(0, 0, 0);
+        //newRotation = Quaternion.Euler(0, 0, 0);
     }
 
     void Awake()
@@ -289,6 +292,7 @@ public class PlayerMovementScriptNew : MonoBehaviour
         if (canJump && Input.GetButtonDown("ResetGravity") && gravityDirection != GravityDirection.YMinus)
         {
             gravityDirection = GravityDirection.YMinus;
+            sound.ResetGravity();
         }
 
     }
