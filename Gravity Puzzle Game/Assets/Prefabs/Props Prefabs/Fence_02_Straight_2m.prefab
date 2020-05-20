@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 978210421599517688}
   - component: {fileID: 8126828596582482382}
   - component: {fileID: 2590909980035185975}
-  - component: {fileID: 5558187518757812439}
+  - component: {fileID: 170146421615162469}
   m_Layer: 8
   m_Name: Fence_02_Straight_2m
   m_TagString: Ground
@@ -81,8 +81,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &5558187518757812439
-MeshCollider:
+--- !u!65 &170146421615162469
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -91,7 +91,6 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: 606c4792848e23645b84eb2ca5faba43, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8964800251535588720, guid: 43999604fff8b1a40a74acac5cd6c4fe, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 4, z: 0.05}
+  m_Center: {x: 0, y: 1.9999998, z: 0}
