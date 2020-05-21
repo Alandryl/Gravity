@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baked: 0
-  bakeOnAwake: 0
+  bakeOnAwake: 1
   flipNormals: 0
   backfaceCulling: 1
   distance: 0.001
-  angleConstraint: 85
+  angleConstraint: 90
   technique: 4
   deferredFlags: 0
   inclusion: 0
