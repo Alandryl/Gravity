@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - Hazard
   - RespawnZone
+  - Indoor
   layers:
   - Default
   - TransparentFX

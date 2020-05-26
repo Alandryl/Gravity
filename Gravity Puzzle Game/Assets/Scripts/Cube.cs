@@ -22,6 +22,7 @@ public class Cube : MonoBehaviour
     public float gravity = 10.0f;
 
     public AudioClip audioActivate;
+    public AudioClip audioPickup;
 
 
     float timeToActivate;
@@ -170,6 +171,8 @@ public class Cube : MonoBehaviour
         rb.freezeRotation = false;
         cube.SetActive(false);
         active = false;
+
+        audioSource.PlayOneShot(audioPickup);
     }
 
     void Drop()

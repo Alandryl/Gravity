@@ -194,6 +194,11 @@ public class PlayerMovementScriptNew : MonoBehaviour
 
         if (IsGrounded())
         {
+            if (!grounded)
+            {
+                sound.CallLanding();
+
+            }
             grounded = true;
         }
         else

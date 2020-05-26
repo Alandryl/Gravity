@@ -231,6 +231,7 @@ MonoBehaviour:
   gravityDirectionVector: {x: 0, y: 0, z: 0}
   gravity: 10
   audioActivate: {fileID: 8300000, guid: cab9978c4b09ed2429f1967a2b48d30c, type: 3}
+  audioPickup: {fileID: 8300000, guid: ea62a546613f1de46a5e120e0e79466f, type: 3}
   ActivationPause: 1
 --- !u!65 &7647397702624042845
 BoxCollider:

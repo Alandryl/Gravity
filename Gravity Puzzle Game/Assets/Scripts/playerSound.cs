@@ -44,6 +44,8 @@ public class playerSound : MonoBehaviour
         {
             timeTillFirstStep = 0;
         }
+
+
     }
 
 
@@ -65,13 +67,30 @@ public class playerSound : MonoBehaviour
         }
     }
 
-    void CallJump()
+    public void CallJump()
     {
         FMODUnity.RuntimeManager.PlayOneShot(inputSoundJump);
+    }
+
+    public void CallLanding()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(inputSoundFootsteps);
     }
 
     public void ResetGravity()
     {
         audio.PlayOneShot(audioResetGravity);
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Indoor")
+        {
+            GameObject.Find("SoundPlayer").GetComponent<SoundPlayer>().playerInside = true;
+        }
+        else
+        {
+            GameObject.Find("SoundPlayer").GetComponent<SoundPlayer>().playerInside = false;
+        }
     }
 }
