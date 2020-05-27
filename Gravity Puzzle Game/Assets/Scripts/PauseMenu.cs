@@ -14,9 +14,17 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject pauseMenuMainUI;
     public GameObject HowToPlayUI;
+    public GameObject journalEntriesUI;
 
 
     Text gravityCoresCollectedText;
+    public List<Sprite> journalSprites = new List<Sprite>();
+
+    [Header("Journal")]
+
+    public Image journalEntryImage;
+    public int currentJournalPage = 0;
+    public int unlockedJournalPages = -1;
 
 
     [Header("UI")]
@@ -26,7 +34,7 @@ public class PauseMenu : MonoBehaviour
     [HideInInspector] public int gravityCoresCollected;
      
 
-
+    
     void Awake()
     {
         stats = FindObjectOfType<Stats>();
@@ -62,6 +70,9 @@ public class PauseMenu : MonoBehaviour
 
         gravityCoresCollectedText.text = gravityCoresCollectedString;
 
+
+
+
     }
 
     public void Resume()
@@ -90,6 +101,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         pauseMenuMainUI.SetActive(true);
         HowToPlayUI.SetActive(false);
+        journalEntriesUI.SetActive(false);
 
         Time.timeScale = 0f;
         gameIsPaused = true;
@@ -97,5 +109,30 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
+    public void NextJournalPage()
+    {
+        if (currentJournalPage == unlockedJournalPages)
+        {
+            currentJournalPage = 0;
+        }
+        else
+        {
+            currentJournalPage += 1;
+        }
 
+        journalEntryImage.sprite = journalSprites[currentJournalPage];
+    }
+    public void PreviousJournalPage()
+    {
+        if (currentJournalPage == 0)
+        {
+            currentJournalPage = unlockedJournalPages;
+        }
+        else
+        {
+            currentJournalPage -= 1;
+        }
+
+        journalEntryImage.sprite = journalSprites[currentJournalPage];
+    }
 }

@@ -19,7 +19,8 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip audioDeath;
     public AudioClip audioMessageIntro;
     public AudioClip audioMessageOutro;
-    public AudioClip audioAmbianceInside;
+    public AudioClip audioAmbienceInside;
+    public AudioClip audioAmbienceOutside;
 
 
     void Start()
@@ -31,12 +32,12 @@ public class SoundPlayer : MonoBehaviour
     {
         if (playerInside)
         {
-            ambienceToPlay = audioAmbianceInside;
+            ambienceToPlay = audioAmbienceInside;
         }
         
         if (!playerInside)
         {
-            ambienceToPlay = null;
+            ambienceToPlay = audioAmbienceOutside;
         }
 
         if (ambience.clip != ambienceToPlay)

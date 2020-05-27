@@ -82,13 +82,17 @@ public class playerSound : MonoBehaviour
         audio.PlayOneShot(audioResetGravity);
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Indoor")
         {
             GameObject.Find("SoundPlayer").GetComponent<SoundPlayer>().playerInside = true;
         }
-        else
+    }
+
+    void OnTriggerLeave(Collider other)
+    {
+        if (other.gameObject.tag == "Indoor")
         {
             GameObject.Find("SoundPlayer").GetComponent<SoundPlayer>().playerInside = false;
         }

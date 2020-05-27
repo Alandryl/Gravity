@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9123998988188407089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/IndoorAmbience
+  m_EditorClassIdentifier: 
+  Path: event:/IndoorAmbience
+  guid: 4f35138fb9d8324485f47b1e7d33ab1f
+  Banks:
+  - {fileID: 4887812438172519891}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 118000
 --- !u!114 &-8974661174648487294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +112,7 @@ MonoBehaviour:
   lastModified: 637261029557884766
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-4965662732081109492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,14 +128,14 @@ MonoBehaviour:
   Path: event:/Sounds/Footstep_02
   guid: 5af9083c0569054da3469f4c55855935
   Banks:
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 288
+  Length: 0
 --- !u!114 &-4090045822594983339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,14 +169,55 @@ MonoBehaviour:
   Path: event:/Sounds/Footstep_04
   guid: 5bddd15ff441b44ebad967bed5174f56
   Banks:
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 264
+  Length: 0
+--- !u!114 &-3004430757459484839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sounds/FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637262130017977355
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-377232976525040563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/OutdoorAmbience
+  m_EditorClassIdentifier: 
+  Path: event:/OutdoorAmbience
+  guid: dcdebf7be6fd6d4fbb66707c9f8200e9
+  Banks:
+  - {fileID: 4887812438172519891}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 168000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1368483941152199951}
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   EditorEvents:
   - {fileID: -4965662732081109492}
   - {fileID: 3761526693949569052}
@@ -178,12 +242,14 @@ MonoBehaviour:
   - {fileID: 7121964315761965399}
   - {fileID: 6669053739339214155}
   - {fileID: 5164441196435163233}
+  - {fileID: -9123998988188407089}
+  - {fileID: -377232976525040563}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   StringsBanks:
   - {fileID: 1368483941152199951}
-  stringsBankWriteTime: 637261029558223866
+  stringsBankWriteTime: 637262139993021827
   cacheVersion: 3
 --- !u!114 &1348001667642355899
 MonoBehaviour:
@@ -200,14 +266,14 @@ MonoBehaviour:
   Path: event:/Sounds/Footstep_01
   guid: bf11fc6cc7ad444b93b9ff16e006d218
   Banks:
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 240
+  Length: 0
 --- !u!114 &1368483941152199951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,11 +288,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Sounds/FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637261029558223866
+  lastModified: 637262139993021827
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1020
+    Value: 1112
   Exists: 1
 --- !u!114 &2406781699448196612
 MonoBehaviour:
@@ -243,14 +309,14 @@ MonoBehaviour:
   Path: event:/Sounds/Footstep_05
   guid: 140104169979e34c92206ab9ebfc2c35
   Banks:
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 264
+  Length: 0
 --- !u!114 &2444108255202568619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +350,7 @@ MonoBehaviour:
   Path: event:/Footsteps
   guid: b1a1df5ffeae0849a85bac41ebd06c65
   Banks:
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -292,6 +358,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4200
+--- !u!114 &4887812438172519891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sounds/FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637262139992792442
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5164441196435163233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,14 +391,14 @@ MonoBehaviour:
   Path: event:/Sounds/Jump_01
   guid: 1c7da0e4b071264380cd54c91f6a9f6f
   Banks:
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 720
+  Length: 0
 --- !u!114 &5304507950102014965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +432,7 @@ MonoBehaviour:
   Path: event:/Jump
   guid: 5c6041262c36ed44bf4184f6c771fe36
   Banks:
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -371,11 +455,11 @@ MonoBehaviour:
   Path: event:/Sounds/Footstep_03
   guid: 67fb6c71444f8d4899216dc5f66a9fe3
   Banks:
-  - {fileID: -5945398445535430137}
+  - {fileID: 4887812438172519891}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 264
+  Length: 0
