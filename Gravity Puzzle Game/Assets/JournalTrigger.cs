@@ -32,6 +32,7 @@ public class JournalTrigger : MonoBehaviour
             pauseMenu.currentJournalPage = pauseMenu.unlockedJournalPages;
             pauseMenu.journalEntryImage.sprite = pauseMenu.journalSprites[pauseMenu.currentJournalPage];
 
+            Destroy(this);
         }
     }
 }
