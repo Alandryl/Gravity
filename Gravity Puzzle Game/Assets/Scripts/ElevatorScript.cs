@@ -120,6 +120,7 @@ public class ElevatorScript : MonoBehaviour
 
         audioSource.clip = null;
         audioSource.clip = audioclipMoving;
+        audioSource.loop = true;
         audioSource.Play();
         isMoving = true;
     }
@@ -128,6 +129,7 @@ public class ElevatorScript : MonoBehaviour
     {
         isMoving = false;
         audioSource.clip = null;
+        audioSource.loop = false;
         audioSource.PlayOneShot(audioclipStop);
 
         yield return new WaitForSeconds(2);

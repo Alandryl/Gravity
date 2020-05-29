@@ -94,4 +94,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 0.75, g: 0.8379829, b: 1, a: 0}
-    - _NoiseColor: {r: 0.06859999, g: 0.3875899, b: 0.98, a: 0}
+    - _NoiseColor: {r: 0.6, g: 0.63199997, b: 1, a: 0}
