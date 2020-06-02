@@ -33,7 +33,7 @@
         }
     },
     "texturesets": {
-        "GoalSign_01": {
+        "Plaque_01_KennethLinwood": {
             "shader": "Main shader"
         }
     }
